@@ -4,7 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                archiveArtifacts artifacts: 'target/my-app-1.0-SNAPSHOT.jar', allowEmptyArchive: false
             }
         }
         stage('Test') {
@@ -19,7 +18,9 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                dir("var/jenkins_home/workspace/GitHub Pipeline") {
+                    sh './jenkins/scripts/deliver.sh'
+                }
             }
         }
     }
