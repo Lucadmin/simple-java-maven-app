@@ -27,6 +27,8 @@ ls -la
 echo "Target has the following files"
 ls -la target/
 
+sh 'chmod +x target/my-app-1.0-SNAPSHOT.jar'
+
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
