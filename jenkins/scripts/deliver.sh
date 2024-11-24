@@ -29,7 +29,9 @@ ls -la target/
 
 chmod +x target/my-app-1.0-SNAPSHOT.jar
 
+WORKSPACE=$(pwd)
+
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
-java -jar $(pwd | sed "s/ /\\\\ /g")/target/${NAME}-${VERSION}.jar
+java -jar "$WORKSPACE/target/${NAME}-${VERSION}.jar"
