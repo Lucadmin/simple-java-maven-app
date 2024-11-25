@@ -20,16 +20,7 @@ set -x
 VERSION=`mvn -q -DforceStdout help:evaluate -Dexpression=project.version`
 set +x
 
-echo "Current directory: $(pwd)"
-echo "Listing directory contents:"
-ls -la
-
-echo "Target has the following files"
-ls -la target/
-
-cp target/my-app-1.0-SNAPSHOT.jar .
-
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
-java -jar my-app-1.0-SNAPSHOT.jar
+java -jar target/my-app-1.0-SNAPSHOT.jar
